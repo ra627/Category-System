@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><?php echo $title; ?></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/mystyles.css">  
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    
+    #btn {width: 40%;margin-top: 0.5%;}
+    #butt {width:30%; margin-top: 1%; margin-left: 5%}
+    
+   .container {margin-left: 25%}
+    
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a id="lnks" href="index">PERSON</a></li>
+        <li><a id="lnks" href="category_control">CATEGORY</a></li>
+        <li><a id="lnks" href="topic_control">TOPIC</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container">    
+  
+    <h2><?php echo $title; ?></h2><br> 
+		  		
+	 <?php echo validation_errors(); ?>
+
+    <?php echo form_open('person/add_person_control'); ?>
+    
+    <div class="row">
+     <div class="col-sm-1">    
+      <label id="lbel" for="title">Title</label>
+     </div>
+     <div class="col-sm-11">
+      <select required name="title" id="btn">
+      <option value="none">none</option>  		
+  		<option value="Mr">Mr</option>
+  		<option value="Mrs">Mrs</option>
+  		<option value="Miss">Miss</option>
+  		<option value="Ms">Ms</option>
+  		<option value="Dr">Dr</option>
+		</select>      
+     </div>
+    </div>
+    
+    <div class="row">
+     <div class="col-sm-1">    
+      <label for="title">Name</label>
+     </div>
+     <div class="col-sm-11">
+      <input required type="input" id="btn" name="firstname" /><br />
+     </div>
+    </div>
+  
+    <div class="row">
+     <div class="col-sm-1">    
+      <label for="title">Surname</label>
+     </div>
+     <div class="col-sm-11">
+      <input required type="input" id="btn" name="surname">
+     </div>
+    </div>
+    
+    <div class="row">
+     <div class="col-sm-1">    
+      <label for="title">Telephone:</label>
+     </div>
+     <div class="col-sm-11">
+      <input required type="input" id="btn" name="tele">
+     </div>
+    </div>
+    
+     <div class="row">
+     <div class="col-sm-1">    
+      <label for="title">Relation:</label>
+     </div>
+     <div class="col-sm-11">
+      <select required name="rela" id="btn">
+      <option value="Mother">Mother</option>  		
+  		<option value="Father">Father</option>
+  		<option value="Husband">Husband</option>
+  		<option value="Wife">Wife</option>
+  		<option value="Son">Son</option>
+  		<option value="Daughter">Daughter</option>
+  		<option value="Brother">Brother</option>
+  		<option value="Sister">Sister</option>
+  		<option value="Grandmother">Grandmother</option>
+  		<option value="Grandfather">Grandfather</option>
+  		<option value="Uncle">Uncle</option>
+  		<option value="Aunt">Aunt</option>
+  		<option value="Niece">Niece</option>
+  		<option value="Nephew">Nephew</option>
+  		<option value="Brother-in-Law">Brother-in-Law</option>
+  		<option value="Sister-in-Law">Sister-in-Law</option>
+  		<option value="Friend">Friend</option>
+  		<option value="Cousin">Cousin</option>
+  		<option value="Other">Other</option>
+  		
+		</select>      
+     </div>
+    </div>
+    
+    <div class="row">
+     <div class="col-sm-1">  
+     </div>      
+      <div class="col-sm-11">      
+      <input type="submit" id="butt" name="submit" value="Submit" />
+     </div> 
+    </div>
+    
+</form>
+</div><!--container -->
+
+</body>
+</html>

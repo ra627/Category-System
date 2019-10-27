@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: gray;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    
+    #btn {width: 40%;margin-top: 0.5%;}
+    #butt {width:30%; margin-top: 1%; margin-left: 5%}
+    
+   .container {margin-left: 25%}
+   
+   #coltitle {font-size: 19px; margin-top: 0.5%; padding-left: 6%}
+   
+   #output {font-size: 19px;font-weight: bold}
+   
+   #dandt {font-size: 16px;margin-top: 0.7%;color:blue}
+   
+   txtarea {margin-left: -1%}
+   
+   .whit {color:white}
+    
+  </style>
+</head>
+<body>
+<?php  //$lnks = base_url('index.php/person'); ?>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a style="color:red;font-weight:bold" class="navbar-brand">Personal Data Storage System</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a style="color:yellow;font-weight:bold" href="#"></a></li>
+        <li><a href="person/add_person_control">Add Users</a></li>        
+        <li><a href="person/add_person_record_control">Add Record</a></li>
+        <li><a href="person/category_control">Select Category</a> -->
+      </ul> 
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Add Record</a></li> -->
+        <li class="active"><a style="color:yellow;font-weight:bold">List of People</a></li>        
+        <li><a href="add_person_control">Add User</a></li>
+        <li><a href="category_view" style="color:white">Select Category</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid">     
+ <h2>Home Page</h2>
+ 
+  <table class="table table-hover">
+    <thead>
+      <tr>   
+        <th>Title</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>VIEW</th>
+        <!-- <th>ID No:</th> --> 
+        <th>ADD</th>        
+        <th>Phone</th>
+        <th>Relation</th>
+      </tr>
+    </thead>
+    <tbody>
+       
+    <?php     	
+     	
+     	$query = $this->db->get('person');
+     	
+     	 foreach ($query->result() as $row) {
+				
+				$pid = $row->pid;	
+				
+				//$pid = $row->pid;					
+								
+				$title = $row->title;
+				
+				$fname = $row->fname;
+				
+				$lname = $row->lname;
+				
+				$records = $row->recordno;
+				
+				$phone = $row->phone;
+				
+				$relation = $row->relation;
+				
+		    echo "<tr>";
+		    echo "<td>$title</td>";
+		    echo "<td>$fname</td>";
+		    echo "<td>$lname</td>";  
+          echo "<td><a href='fetch_record_control?myid=$pid' target='_blank'>
+          Records $records</a></a></td>";
+          echo "<td><a href='fetch_person_control?myid=$pid' target='_blank'><span class='glyphicon glyphicon-plus'>Record</a></td>";		    
+		    echo "<td>$phone</td>";
+		    echo "<td>$relation</td></tr>";
+		    
+      } 	
+     		   
+   ?>  
+  
+  </tbody>
+  </table> 
+  
+</div>
+
+</body>
+</html>
+
+			    	      
+	

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CKEditor</title>
+<script src="https://cdn.ckeditor.com/4.11.4/full-all/ckeditor.js"></script>>
+</head>
+<body>
+<table border="1" align="center">
+<tr>
+<td><textarea name="editor1"></textarea></td>
+</tr>
+</table>
+<script>
+   CKEDITOR.replace( 'editor1' );
+</script>
+</body>
+</html>

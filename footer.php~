@@ -1,0 +1,17 @@
+<html>
+<head>
+<title><?php echo $title; ?></title>
+</head>
+<body>
+<h1><?php echo $heading; ?></h1>
+<br>
+<center>
+<h3>
+<?php echo $todo_list[0]; ?> &nbsp;
+<?php echo $todo_list[1]; ?> &nbsp;
+<?php echo $todo_list[2]; ?> &nbsp;
+</h3>
+</center>
+</body>
+</html>
+

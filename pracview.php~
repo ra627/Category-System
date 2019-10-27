@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>My practice page</title>
+<body>
+<?php
+  
+ $i = 0;
+
+ foreach ($mysql as $myrow) {   
+  
+  $myarray[$i] = $myrow['id'];
+  $i++;
+  $myarray[$i] = $myrow['title'];
+  $i++;
+  $myarray[$i] = $myrow['slug'];
+  $i++;
+  $myarray[$i] = $myrow['text'];
+
+  $i++;  
+ 
+ }
+ 
+ echo $myarray[7];
+ 
+ ?>

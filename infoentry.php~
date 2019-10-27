@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ffffjj</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    
+    #btn {width: 40%;margin-top: 0.5%;}
+    #butt {width:30%; margin-top: 1%; margin-left: 5%}
+    
+   .container {margin-left: 25%}
+   
+   #coltitle {font-size: 19px; margin-top: 0.5%; padding-left: 6%}
+   
+   #output {font-size: 19px;font-weight: bold}
+   
+   #dandt {font-size: 16px;margin-top: 0.7%;color:blue}
+   
+   txtarea {margin-left: -1%}
+    
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index">Add Person</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container">    
+     
+<?php echo validation_errors(); ?>
+
+<?php echo form_open('person/add_record'); ?>    
+    
+    <h3>Record Entry Form:</h3><br>
+    
+    <div class="row">
+     <div id="coltitle" class="col-sm-2">Title:</div>
+     <div class="col-sm-10">
+      <div class="form-group">      
+      <select class="form-control" required name="title" id="btn">
+      <?php      
+	    	
+	    	$this->db->select('title');
+			
+			$query = $this->db->get('person');
+			
+			foreach ($query->result() as $row) {	
+			    	      
+				$myrow = $row->title;				
+				       	 
+       	 echo "<option value='$myrow'>$myrow</option>";  		
+         
+         }         
+      ?>		
+		
+		</select> 
+		</div>     
+     </div>
+    </div>
+    
+    <div class="row">
+     <div id="coltitle" class="col-sm-2">Name:</div>
+     
+		<div class="col-sm-10">
+      <div class="form-group">      
+      <select class="form-control" required name="name" id="btn">
+      <?php      
+	    	
+	    	$this->db->select('fname');
+			
+			$querys = $this->db->get('person');
+			
+			foreach ($querys->result() as $rows) {	
+			    	      
+				$myrows = $rows->fname;				
+				       	 
+       	 echo "<option value='$myrows'>$myrows</option>";  		
+         
+         }         
+      ?>		
+		</select>      
+     </div>
+     </div>        
+    </div>
+    
+     <div class="row">
+     <div id="coltitle" class="col-sm-2">Surname:</div>
+     
+      <div class="col-sm-10">
+      <div class="form-group">     	
+     	<select class="form-control" required name="sname" id="btn">
+      <?php      
+	    	
+	    	$this->db->select('lname');
+			
+			$querys = $this->db->get('person');
+			
+			foreach ($querys->result() as $rows) {	
+			    	      
+				$myrows = $rows->lname;				
+				       	 
+       	 echo "<option value='$myrows'>$myrows</option>";  		
+         
+         }         
+      ?>		
+		</select>
+		</div>
+		</div>  
+    </div>
+    
+    <div class="row">
+     <div id="coltitle" class="col-sm-2">Telephone:</div>
+     
+      <div class="col-sm-10">
+      <div class="form-group">     	
+     	<select class="form-control" required name="teles" id="btn">
+      <?php      
+	    	
+	    	$this->db->select('phone');
+			
+			$querys = $this->db->get('person');
+			
+			foreach ($querys->result() as $rows) {	
+			    	      
+				$myrows = $rows->phone;				
+				       	 
+       	 echo "<option value='$myrows'>$myrows</option>";  		
+         
+         }         
+      ?>		
+		</select>
+		</div>
+		</div>  
+    </div>    
+
+    <div class="row">
+    <div id="coltitle" class="col-sm-2">Date/Time</div>
+	 <div id="dandt" class="col-sm-10">
+  		<?php
+  		  	
+  		  	$mday = date("l");
+	
+			// Prints the date
+			$mydate = date("j");
+			
+			// Prints the months
+			 $mymonths = date("F"); 
+			
+			// Prints the year, time
+			 $myyear = date("Y"); 
+			
+	      //prints the time	   
+		    $mytime = gmdate("H:i:s");
+			
+			echo $mday . " " . $mydate . " " . $mymonths . " " . $myyear . " " . $mytime;		
+  		
+  		?>	 
+	 </div>	    
+    </div>
+    
+	 <div class="row">
+     <div id="coltitle" class="col-sm-2">Subject</div>
+     <div class="col-sm-10">		 
+		 <div class="form-group row">
+        <div class="col-xs-5">  		  
+  		  <input required class="form-control input-sm" name="sbjec" type="text"><br>
+		  </div>
+		 </div>       
+     </div>
+    </div>    
+    
+    
+    <div class="row">
+     <div class="col-sm-12">
+		 <div class="form-group">
+       <div class="col-xs-8">		 
+  		 <textarea required class="form-control input-lg" name="txtentry" rows="5"></textarea>
+	    </div>
+		 </div>       
+     </div>
+    </div>
+    
+     <div class="row">
+     <div class="col-sm-1">  
+     </div>      
+      <div class="col-sm-11">      
+      <input type="submit" id="butt" name="submit" value="Submit" />
+     </div> 
+    </div>
+    
+</form>
+
+</div>
+
+</body>
+</html>

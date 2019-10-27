@@ -1,0 +1,23 @@
+<html>
+<head>
+<title><?php echo $title; ?></title>
+</head>
+<body>
+<?php echo validation_errors(); ?>
+
+<?php echo form_open('person/entry'); ?>
+
+    <label for="title">Title</label>
+    <input type="input" name="title" /><br />
+    
+    <label for="firstname">Name</label>
+    <input type="input" name="firstname" /><br />
+
+	 <label for="surname">Surname</label>
+    <input type="input" name="surname" /><br />
+
+    <input type="submit" name="submit" value="Create news item" />
+
+</form>
+</body>
+</html>
